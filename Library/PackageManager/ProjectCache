@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637815845822143745
-    m_Hash: 2319830330
+      ticks: 637815890537061299
+    m_Hash: 1742896762
   m_LockFileStatus:
     m_FilePath: C:/Users/ilia7/Unity_progects/Bogatiry/Bogat_prod/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637815846155255375
-    m_Hash: 1621073769
+      ticks: 637815890537071272
+    m_Hash: 414520415
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
