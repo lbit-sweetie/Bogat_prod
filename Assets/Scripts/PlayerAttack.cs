@@ -17,8 +17,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject[] massEnemys;
 
-    public bool delayPerAttack = false;
-
     private WaitForSeconds waitForSeconds;
 
     void Start()
@@ -28,16 +26,14 @@ public class PlayerAttack : MonoBehaviour
         StartCoroutine(Attack_IEnum());
     }
 
-    private IEnumerator Attack_IEnum()
+    private IEnumerator Attack_IEnum() // Главный енам атаки
     {
         while (true)
         {
             if (!Input.anyKey && LookAtEnemy() != null)
             {
-                StartCoroutine(ChangeRotation());
-                //StopCoroutine(ChangeRotation());
-
-                //WaitForSeconds waitForSeconds = new WaitForSeconds(delayForShoot * 1.5f);
+                var enemyT = LookAtEnemy();
+                transform.LookAt(enemyT.position);
                 GameObject bulet = GameObject.Instantiate(BuletPref, firePoint.position, Quaternion.identity);
                 bulet.GetComponent<Rigidbody>().AddForce(firePoint.forward * impulse, ForceMode.Impulse);
 
@@ -50,25 +46,8 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeRotation()
+    private Transform LookAtEnemy() // Находит близжайшего врага
     {
-        var enemyT = LookAtEnemy();
-        var look_dir = (enemyT.position - firePoint.transform.position).normalized;
-        look_dir.y = 0;
-        transform.rotation = Quaternion.Lerp(transform.rotation,
-            Quaternion.LookRotation(look_dir), 30);
-        yield return new WaitForSeconds(delayForShoot);
-
-    }
-
-    //private GameObject[] GetEnemy()
-    //{
-    //    return GameObject.FindGameObjectsWithTag("Enemy");
-    //}
-
-    private Transform LookAtEnemy() // близжайшего врага
-    {
-        //massEnemys = GetEnemy();
         var min = 100f;
         float a;
         GameObject enemy = null;
@@ -86,5 +65,10 @@ public class PlayerAttack : MonoBehaviour
             
         }
         return enemy.transform;
+    }
+
+    private void DamageEnemy()
+    {
+
     }
 }

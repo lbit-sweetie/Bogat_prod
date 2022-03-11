@@ -54,8 +54,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bullet_Scr.cs" />
+    <Compile Include="Assets\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\PlayerCont_test.cs" />
+    <Compile Include="Assets\Scripts\ItemDroping.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerControler.cs" />
+    <Compile Include="Assets\Scripts\TestEnemyScr.cs" />
+    <Compile Include="Assets\Scripts\PlayerStatistics.cs" />
+    <Compile Include="Assets\Scripts\HealthEnemySustem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
