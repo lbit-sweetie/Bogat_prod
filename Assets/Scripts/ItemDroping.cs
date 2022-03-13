@@ -2,29 +2,41 @@ using UnityEngine;
 
 public class ItemDroping : MonoBehaviour
 {
-    private PStatistics playerStatistics;
+    //private PStatistics playerStatistics;
+    public GameObject moneyPrefab;
+    public GameObject itemPrefab;
 
     [Header("Макс колво монет за текущ локацию")]
     [SerializeField]
-    private float countOfExp;
+    public float countOfExp = 1f;
 
     [SerializeField]
     [Header("Макс колво XP за текущ локацию")]
-    private float countOfMoney;
-    [SerializeField]
+    public float countOfMoney = 1f;
 
-
-    void Start()
+    private void Awake()
     {
-        
-    }
-    void Update()
-    {
-        
+        //playerStatistics = GetComponent<PStatistics>();
     }
 
-    public void ItemDrop()
+    public void ItemDropMoney(Transform tf)
     {
+        Instantiate(moneyPrefab, tf.position, Quaternion.identity);
+    }
+    public void ItemDropItem(Transform tf)
+    {
+        Instantiate(itemPrefab, tf.position, Quaternion.identity);
+    }
 
+    public void ItemDrop(Transform tf)
+    {
+        if(Random.Range(1,100) <= 2)
+        {
+            ItemDropItem(tf);
+        }
+        else
+        {
+            ItemDropMoney(tf);
+        }
     }
 }

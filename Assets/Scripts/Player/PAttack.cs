@@ -75,6 +75,10 @@ public class PAttack : MonoBehaviour
                 }
             }
         }
-        return enemy.transform;
+
+        if (enemy == null)
+            return null;
+        else
+            return enemy.transform;
     }
 }

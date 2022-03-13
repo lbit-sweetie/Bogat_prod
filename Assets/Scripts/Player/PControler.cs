@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PControler : MonoBehaviour
 {
-    [SerializeField]
     private float speed;
+
+    private PStatistics stats;
 
     //private Vector3 lerpMovement;
     //private Vector3 movement;
@@ -19,6 +20,12 @@ public class PControler : MonoBehaviour
     //{
     //    characterController = GetComponent<CharacterController>();
     //}
+
+    private void Start()
+    {
+        stats = GetComponent<PStatistics>();
+        speed = stats.walkSpeed;
+    }
     void Update()
     {
         //float vertical = Input.GetAxis("Vertical");
