@@ -864,7 +864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0bf4683dfb4704d8069db16daa8fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
 --- !u!114 &1529051906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,10 +894,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  damage: 10
+  damage: 50
   health: 100
   protection: 1
   attackSpeed: 1
+  walkSpeed: 8
+  chanceCritDamage: 1
+  critDamage: 1
+  curentCountExp: 0
+  curentCountMoney: 0
 --- !u!114 &1529051908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,6 +915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce054eb1bc9a26844b1808f336b0d91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyPrefab: {fileID: 77582945037905845, guid: 66b0feaa2a4343940a8998c60228a6ea, type: 3}
+  itemPrefab: {fileID: 5082478195552863940, guid: 0163acfbce1a53e49835e4c3974efc4f, type: 3}
   countOfExp: 0
   countOfMoney: 0
 --- !u!1 &1687258581
