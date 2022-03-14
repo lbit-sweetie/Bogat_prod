@@ -919,6 +919,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 5082478195552863940, guid: 0163acfbce1a53e49835e4c3974efc4f, type: 3}
   countOfExp: 0
   countOfMoney: 0
+  chanceMoney: 0.9
+  chanceItem: 0.02
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0

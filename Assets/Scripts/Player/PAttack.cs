@@ -19,11 +19,19 @@ public class PAttack : MonoBehaviour
 
     private WaitForSeconds waitForSeconds;
 
+    public enum PlayerWeapon
+    {
+        Sword,
+        Shild,
+        Axe
+    }
+
     void Start()
     {
         waitForSeconds = new WaitForSeconds(delayForShoot);
         massEnemys = GameObject.FindGameObjectsWithTag("Enemy");
         StartCoroutine(Attack_IEnum());
+
     }
 
     private IEnumerator Attack_IEnum() // Главный енам атаки
