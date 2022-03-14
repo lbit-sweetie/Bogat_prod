@@ -6,7 +6,7 @@ public class Bullet_Scr : MonoBehaviour
 {
     private GameObject player;
     private PStatistics playerStatistics;
-    private HealthEnemySustem healthEnemy;
+    private EStatistics healthEnemy;
     private float damage;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class Bullet_Scr : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy") // Проверка если пуля попала в врага - отнимать хп
         {
-            healthEnemy = collision.gameObject.GetComponent<HealthEnemySustem>();
+            healthEnemy = collision.gameObject.GetComponent<EStatistics>();
             healthEnemy?.TakeDamage(damage);
             Destroy(gameObject, .0001f);
         }
