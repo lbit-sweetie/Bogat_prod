@@ -8,6 +8,7 @@ public class Bullet_Scr : MonoBehaviour
     private PStatistics playerStatistics;
     private EStatistics healthEnemy;
     private float damage;
+    private bool ricochet;
 
     private void Awake()
     {
@@ -42,6 +43,8 @@ public class Bullet_Scr : MonoBehaviour
             Destroy(gameObject, 0.001f);
         }
     }
+
+
 
     private void FixedUpdate()
     {
