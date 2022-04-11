@@ -1,13 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PControler : MonoBehaviour
 {
-    private float speed;
+    public float speed;
 
-    private PStatistics stats;
+
+    //private PProperties stats;
+
+    //private Vector3 dir;
 
     //private Vector3 lerpMovement;
     //private Vector3 movement;
@@ -23,26 +23,28 @@ public class PControler : MonoBehaviour
 
     private void Start()
     {
-        stats = GetComponent<PStatistics>();
-        speed = stats.walkSpeed;
+        speed = GetComponent<PProperties>().walkSpeed;
     }
     void Update()
     {
         //float vertical = Input.GetAxis("Vertical");
         //float horizontal = Input.GetAxis("Horizontal");
 
-        //Vector3 forward = transform.forward * vertical;
-        //Vector3 direction = transform.right * horizontal;
-
+        //Vector3 forward = -Vector3.forward * vertical;
+        //Vector3 direction = -Vector3.right * horizontal;
         //movement = (forward + direction) * speed;
-        //lerpMovement = Vector3.Lerp(lerpMovement, movement, smooth);
+
+        //lerpMovement = Vector3.Lerp(lerpMovement, movement, speed * Time.deltaTime);
+
+        //if (Input.anyKey)
+        //    transform.LookAt(lerpMovement);
 
         //characterController.Move(lerpMovement * Time.deltaTime);
 
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position - Vector3.forward, speed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.back, speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -54,7 +56,16 @@ public class PControler : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position - Vector3.right, speed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.left, speed * Time.deltaTime);
         }
+
+        //transform.position = Vector3.Lerp(transform.position, dir, speed * Time.deltaTime);
+        //transform.LookAt(dir);
+
+
+        //lerpMovement = Vector3.Lerp(lerpMovement, dir, speed);
+
+        //characterController.Move(lerpMovement * Time.deltaTime);
+        //dir = Vector3.zero;
     }
 }

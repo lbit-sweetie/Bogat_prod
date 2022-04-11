@@ -14,33 +14,26 @@ public class PAttack : MonoBehaviour
     private Transform firePoint;
     [SerializeField]
     private float impulse;
-    [SerializeField]
+
     private GameObject[] massEnemys;
 
     private WaitForSeconds waitForSeconds;
-
-    public enum PlayerWeapon
-    {
-        Sword,
-        Shild,
-        Axe
-    }
 
     void Start()
     {
         waitForSeconds = new WaitForSeconds(delayForShoot);
         massEnemys = GameObject.FindGameObjectsWithTag("Enemy");
         StartCoroutine(Attack_IEnum());
-
     }
 
     private IEnumerator Attack_IEnum() // Главный енам атаки
     {
         while (true)
         {
-            if (!Input.anyKey && LookAtEnemy() != null)
+            var check = LookAtEnemy();
+            if (!Input.anyKey && check != null)
             {
-                CreateAndShoot();
+                CreateAndShoot(check);
 
                 yield return waitForSeconds;
             }
@@ -54,9 +47,9 @@ public class PAttack : MonoBehaviour
     /// <summary>
     /// Создает и толкает пулю
     /// </summary>
-    private void CreateAndShoot()
+    private void CreateAndShoot(Transform check)
     {
-        var enemyT = LookAtEnemy();
+        var enemyT = check;
         transform.LookAt(enemyT.position);
         GameObject bulet = GameObject.Instantiate(BuletPref, firePoint.position, Quaternion.identity);
         bulet.GetComponent<Rigidbody>().AddForce(firePoint.forward * impulse, ForceMode.Impulse);

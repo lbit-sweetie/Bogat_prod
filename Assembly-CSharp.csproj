@@ -53,19 +53,27 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Scriptable Objects\Items\Boots_SO.cs" />
+    <Compile Include="Assets\Scripts\Player\PProperties.cs" />
     <Compile Include="Assets\Scripts\Player\Bullet_Scr.cs" />
-    <Compile Include="Assets\Scripts\Enemy\HealthEnemySustem.cs" />
-    <Compile Include="Assets\Scripts\PlayerCamera.cs" />
-    <Compile Include="Assets\Scripts\PlayerCont_test.cs" />
-    <Compile Include="Assets\Scripts\ItemDroping.cs" />
-    <Compile Include="Assets\Scripts\Player\PAttack.cs" />
-    <Compile Include="Assets\Scripts\Player\PControler.cs" />
-    <Compile Include="Assets\Scripts\TestEnemyScr.cs" />
-    <Compile Include="Assets\Scripts\Player\PStatistics.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EStatistics.cs" />
     <Compile Include="Assets\Scripts\Enemy\ERangedAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\HealthEnemySustem.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\PlayerCont_test.cs" />
+    <Compile Include="Assets\Scripts\GameMechanics\ItemDroping.cs" />
+    <Compile Include="Assets\Scripts\Player\PAttack.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Items\Arrows_SO.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Items\Artifacts_SO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRangedAI.cs" />
+    <Compile Include="Assets\Scripts\Player\PControler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EMeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EKillSystem.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Items\Armor_SO.cs" />
+    <Compile Include="Assets\Scripts\TestEnemyScr.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\PStatistics_SO.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Enemy_SO.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EStatistics.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EProperties\EProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

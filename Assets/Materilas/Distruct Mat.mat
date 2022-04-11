@@ -10,7 +10,7 @@ Material:
   m_Name: Distruct Mat
   m_Shader: {fileID: -6465566751694194690, guid: c8728c8fc1598304a9e0dde79430b29e, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -76,7 +76,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_3450e7355ff14a70a17f8513a83c81ff: 0.01
+    - Vector1_12e670f26ebe4970a01b55e1b83b3e2d: 75.6
+    - Vector1_3450e7355ff14a70a17f8513a83c81ff: 0.02
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -104,7 +105,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_424c644fc73c4d7995150cacd0e4e0e1: {r: 0.35648695, g: 0.1397988, b: 1.1812999, a: 0}
+    - Color_424c644fc73c4d7995150cacd0e4e0e1: {r: 1.1812998, g: 0.14225076, b: 0.80042106, a: 0}
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
