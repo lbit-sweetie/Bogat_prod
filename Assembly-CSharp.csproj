@@ -69,11 +69,12 @@
     <Compile Include="Assets\Scripts\Enemy\EMeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\EKillSystem.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Items\Armor_SO.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EProperties\EProperties.cs" />
     <Compile Include="Assets\Scripts\TestEnemyScr.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\PStatistics_SO.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Enemy_SO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EStatistics.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EProperties\EProperties.cs" />
+    <Compile Include="Assets\Packs\Low_Poly_Survival\Scripts\SimpleCameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

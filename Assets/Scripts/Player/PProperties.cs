@@ -20,6 +20,7 @@ public class PProperties : MonoBehaviour
     public float damage;
     public bool canAcross;
     public bool canRicochet;
+    public bool canSplash;
     #endregion
 
     #region Иннициализация всех SO
@@ -71,6 +72,7 @@ public class PProperties : MonoBehaviour
         damage = arrowsProperties_SO[indexArrow].Damage;
         canAcross = arrowsProperties_SO[indexArrow].canAcross;
         canRicochet = arrowsProperties_SO[indexArrow].canRicochet;
+        canSplash = arrowsProperties_SO[indexArrow].canSplash;
 
         #endregion
 
@@ -83,5 +85,18 @@ public class PProperties : MonoBehaviour
         critDamage += artifacts_SO[indexArtifact].critUp;
 
         #endregion
+    }
+
+    public void HealthUp()
+    {
+        health *= 1.3f;
+    }
+    public void DamageUp()
+    {
+        damage *= 1.2f;
+    }
+    public void SpeedUp()
+    {
+        walkSpeed += 2;
     }
 }

@@ -127,3 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canRicochet: 0
   canAcross: 0
+  canSplash: 0
+  distanceForSplash: 3

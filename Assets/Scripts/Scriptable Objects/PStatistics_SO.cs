@@ -1,7 +1,8 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Character", menuName = "Data/Characters")]
-public class PStatistics_SO : ScriptableObject // Тут будет храниться статистика игрока, будем её менять в течении игры
+public class PStatistics_SO : ScriptableObject // Тут будет храниться статистика игрока,
+                                               // будем её менять в течении игры
 {
     #region Статы
 
@@ -43,30 +44,9 @@ public class PStatistics_SO : ScriptableObject // Тут будет храниться статистика
     public void LevelUp()
     {
         level++;
-    }
-    public void DamageUp()
-    {
-        damage += (level * 2);
-    }
-    public void HealthUp()
-    {
-        health += (level * 5);
-    }
-    public void SpeedUp()
-    {
-        walkSpeed += 0.5f;
-    }
-    public void ProtectionUp()
-    {
-        protection += 5;
-    }
-    public void ChanceCritDamageUp()
-    {
-        chanceCritDamage += 1;
-    }
-
-    public void CritDamageUp()
-    {
+        damage += 3;
+        health += 10;
+        protection += 2;
         critDamage += 1;
     }
     #endregion

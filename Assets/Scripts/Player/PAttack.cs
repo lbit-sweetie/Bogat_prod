@@ -13,7 +13,7 @@ public class PAttack : MonoBehaviour
     [SerializeField]
     private Transform firePoint;
     [SerializeField]
-    private float impulse;
+    private float speedBulet;
 
     private GameObject[] massEnemys;
 
@@ -26,7 +26,7 @@ public class PAttack : MonoBehaviour
         StartCoroutine(Attack_IEnum());
     }
 
-    private IEnumerator Attack_IEnum() // Главный енам атаки
+    private IEnumerator Attack_IEnum()
     {
         while (true)
         {
@@ -52,14 +52,14 @@ public class PAttack : MonoBehaviour
         var enemyT = check;
         transform.LookAt(enemyT.position);
         GameObject bulet = GameObject.Instantiate(BuletPref, firePoint.position, Quaternion.identity);
-        bulet.GetComponent<Rigidbody>().AddForce(firePoint.forward * impulse, ForceMode.Impulse);
+        bulet.GetComponent<Rigidbody>().AddForce(firePoint.forward * speedBulet, ForceMode.Impulse);
     }
 
     /// <summary>
     /// Находит близжайшего врага
     /// </summary>
     /// <returns>Transform близжайшего обьекта</returns>
-    private Transform LookAtEnemy() // Находит близжайшего врага
+    private Transform LookAtEnemy()
     {
         var min = 100f;
         float a;
@@ -77,9 +77,6 @@ public class PAttack : MonoBehaviour
             }
         }
 
-        if (enemy == null)
-            return null;
-        else
-            return enemy.transform;
+        return enemy == null ? null : enemy.transform;
     }
 }

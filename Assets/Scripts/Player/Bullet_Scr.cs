@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Bullet_Scr : MonoBehaviour
 {
@@ -10,13 +11,20 @@ public class Bullet_Scr : MonoBehaviour
     private float damage;
     public bool canRicochet;
     public bool canAcross;
+    public bool canSplash;
+    public float distanceForSplash;
 
+    private GameObject[] massEnemys;
     private Rigidbody rb;
     #endregion 
 
     private void Awake()
     {
         TakeProp();
+    }
+    void Start()
+    {
+        massEnemys = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,130 +34,157 @@ public class Bullet_Scr : MonoBehaviour
             DamageEnemyColision(collision);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider triger)
     {
-        if (other != null)
+        if (triger != null)
         {
-            DamageEnemyColider(other);
+            DamageEnemyColider(triger);
         }
     }
-
-    /// <summary>
-    /// Метод для проверки, нанесения урона обьекту
-    /// </summary>
-    /// <param name="colider"></param>
     private void DamageEnemyColider(Collider colider)
     {
-        if (colider.gameObject.tag == "Enemy") // Проверка если пуля попала в врага - отнимать хп
+        switch (colider.gameObject.tag)
         {
-            healthEnemy = colider.gameObject.GetComponent<HealthEnemySustem>();
-            healthEnemy?.TakeDamage(damage);
-            if (!canAcross/* && colider.gameObject.tag != "Coin"*/)
-            {
-                Delete();
-            }
+            case "Player":
+                Del();
+                break;
+            case "Enemy":
+                AttackEnemy(colider);
+                break;
+            case "Wall":
+                Del();
+                break;
+            case "Other":
+                Del();
+                break;
+            case "Bulet":
+                Del();
+                break;
         }
-
-        //if (colider.gameObject.tag == "Wall")
-        //{
-        //    if (canRicochet)
-        //    {
-        //        //rb.velocity = Vector3.Reflect(-collision.relativeVelocity.normalized, collision.contacts[0].normal) * 10;
-        //    }
-        //    else
-        //    {
-        //        Delete();
-        //    }
-        //}
-        //else
-        //{
-        //    if (colider.gameObject.tag == "Bulet")
-        //        Delete();
-        //    else
-        //    {
-        //        if (colider.gameObject.tag != "Coin")
-        //        {
-        //            Delete();
-        //        }
-        //    }
-        //}
     }
     private void DamageEnemyColision(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy") // Проверка если пуля попала в врага - отнимать хп
+        switch (collision.gameObject.tag)
         {
-            healthEnemy = collision.gameObject.GetComponent<HealthEnemySustem>();
-            healthEnemy?.TakeDamage(damage);
-            if (!canAcross/* && colider.gameObject.tag != "Coin"*/)
-            {
-                Delete();
-            }
-            return;
-        }
-
-        if (collision.gameObject.tag == "Wall")
-        {
-            if (canRicochet)
-            {
-                rb.velocity = Vector3.Reflect(-collision.relativeVelocity.normalized, collision.contacts[0].normal) * 10;
-            }
-            else
-            {
-                Delete();
-            }
-        }
-        else
-        {
-            if (collision.gameObject.tag == "Bulet")
-                Delete();
-            else
-            {
-                if (collision.gameObject.tag != "Coin")
-                {
-                    Delete();
-                }
-            }
+            case "Player":
+                Del();
+                break;
+            case "Enemy":
+                AttackEnemy(collision);
+                break;
+            case "Wall":
+                Ricochet(collision);
+                break;
+            case "Other":
+                Del();
+                break;
+            case "Bulet":
+                Del();
+                break;
         }
     }
 
+    private void AcrossAttack()
+    {
+        if (canAcross)
+        {
+            if (damage >= 0)
+                damage -= damage * 0.4f;
+            damage = Mathf.Round(damage);
+        }
+        else
+        {
+            Del();
+        }
+    }
+    private void Ricochet(Collision collision)
+    {
+        if (canRicochet)
+        {
+            rb.velocity = Vector3.Reflect(-collision.relativeVelocity.normalized, collision.contacts[0].normal) * 30;
+        }
+        else
+        {
+            Del();
+        }
+    }
+    private void AttackEnemy(Collider colider)
+    {
+        healthEnemy = colider.gameObject.GetComponent<HealthEnemySustem>();
+        healthEnemy?.TakeDamage(damage);
+        SplashAttack(colider);
+        AcrossAttack();
+    }
+    private void AttackEnemy(Collision collision)
+    {
+        healthEnemy = collision.gameObject.GetComponent<HealthEnemySustem>();
+        healthEnemy?.TakeDamage(damage);
+        SplashAttack(collision);
+        AcrossAttack();
+    }
+    private void SplashAttack(Collider colider)
+    {
+        if (canSplash)
+        {
+            var masNearEnemy = NearEnemy(colider.gameObject, distanceForSplash);
+            foreach (var e in masNearEnemy)
+            {
+                healthEnemy = e.GetComponent<HealthEnemySustem>();
+                healthEnemy?.TakeDamage(damage - (damage * 0.5f));
+            }
+            masNearEnemy = null;
+        }
+    }
+    private void SplashAttack(Collision collision)
+    {
+        if (canSplash)
+        {
+            var masNearEnemy = NearEnemy(collision.gameObject, distanceForSplash);
+            foreach (var e in masNearEnemy)
+            {
+                healthEnemy = e.GetComponent<HealthEnemySustem>();
+                healthEnemy?.TakeDamage(damage - (damage * 0.5f));
+            }
+            masNearEnemy = null;
+        }
+    }
     private void TakeProp()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerStatistics = player.GetComponent<PProperties>();
+        rb = GetComponent<Rigidbody>();
 
         canRicochet = playerStatistics.canRicochet;
         canAcross = playerStatistics.canAcross;
-        rb = GetComponent<Rigidbody>();
-
         damage = playerStatistics.damage;
-
-        //if (canAcross)
-        //{
-        //    gameObject.GetComponent<SphereCollider>().isTrigger = true;
-        //}
-        //else
-        //{
-        //    gameObject.GetComponent<SphereCollider>().isTrigger = false;
-        //}
-
-        //if (canRicochet)
-        //{
-        //    gameObject.GetComponent<SphereCollider>().isTrigger = true;
-        //}
-        //else
-        //{
-        //    gameObject.GetComponent<SphereCollider>().isTrigger = false;
-        //}
+        canSplash = playerStatistics.canSplash;
     }
-
-    private void Delete()
+    private void Del()
     {
-        Destroy(gameObject, 0.001f);
+        Destroy(gameObject);
     }
+    private GameObject[] NearEnemy(GameObject hitObj, float distance)
+    {
+        List<GameObject> outputMas = new List<GameObject>();
+        var min = 100f;
+        float a;
+        for (int i = 0; i < massEnemys.Length; i++)
+        {
+            if (massEnemys[i] != null)
+            {
+                a = Vector3.Distance(massEnemys[i].transform.position, hitObj.transform.position);
+                if (a <= distance)
+                    outputMas.Add(massEnemys[i]);
+            }
+        }
 
+        if (outputMas != null)
+            return outputMas.ToArray();
+        else
+            return null;
+    }
     private void FixedUpdate()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2.5f);
     }
 }
