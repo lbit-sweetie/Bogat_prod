@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PProperties : MonoBehaviour
 {
-    #region Статы перса
+    #region Prop haracter
 
-    [Header("Статы персонажа")]
+    [Header("Prop haracter")]
     public int level = 1;
     public float health = 100;
     public float protection = 1;
@@ -14,8 +14,8 @@ public class PProperties : MonoBehaviour
     public bool secondChance = false;
     #endregion
 
-    #region Статы оружия
-    [Header("Статы оружия")]
+    #region Prop arrows
+    [Header("Prop arrows")]
     public float attackSpeed = 1;
     public float damage;
     public bool canAcross;
@@ -23,25 +23,25 @@ public class PProperties : MonoBehaviour
     public bool canSplash;
     #endregion
 
-    #region Иннициализация всех SO
+    #region innicialisation all SO
 
-    [Header("Сюда кидать ассеты персонажей")]
+    [Header("Here drop assets haracters")]
     [SerializeField] private PStatistics_SO[] pStats_SO;
     public int indexCharacter;
 
-    [Header("Сюда кидать ассеты оружия")]
+    [Header("Here drop assets arrows")]
     [SerializeField] private Arrows_SO[] arrowsProperties_SO;
     public int indexArrow;
 
-    [Header("Сюда кидать ассеты броньки")]
+    [Header("Here drop assets chest")]
     [SerializeField] private Armor_SO[] armor_SO;
     public int indexArmor;
 
-    [Header("Сюда кидать ассеты артифактов")]
+    [Header("Here drop assets artifacts")]
     [SerializeField] private Artifacts_SO[] artifacts_SO;
     public int indexArtifact;
 
-    [Header("Сюда кидать ассеты ботинок")]
+    [Header("Here drop assets boots")]
     [SerializeField] private Boots_SO[] boots_SO;
     public int indexBoots;
 
@@ -54,7 +54,7 @@ public class PProperties : MonoBehaviour
 
     public void TakeProp()
     {
-        #region Добавление стат из SO перса
+        #region Add prop SO characters
 
         level = pStats_SO[indexCharacter].level;
         health = pStats_SO[indexCharacter].health;
@@ -66,7 +66,7 @@ public class PProperties : MonoBehaviour
 
         #endregion
 
-        #region Добавление стат из SO оружий
+        #region Add prop SO arrows
 
         attackSpeed = arrowsProperties_SO[indexArrow].AttackSpeed;
         damage = arrowsProperties_SO[indexArrow].Damage;
@@ -76,7 +76,7 @@ public class PProperties : MonoBehaviour
 
         #endregion
 
-        #region Добавление параметров из шмоток
+        #region Add prop SO items
 
         health += boots_SO[indexBoots].healthUp;
         protection += armor_SO[indexArmor].protection + boots_SO[indexBoots].protection;

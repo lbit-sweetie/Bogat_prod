@@ -7,8 +7,6 @@ public class TestEnemyScr : MonoBehaviour
     float a = 0;
     public float amplitude = 1000;
     public float speed = 1000;
-   
-    // Просто скрипт для тестов
 
     void FixedUpdate()
     {

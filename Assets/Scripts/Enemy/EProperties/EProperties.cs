@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EProperties : MonoBehaviour
 {
-    [Header("Статы")]
+    [Header("Stats")]
     public int level;
     public float health;
     public float walkSpeed;
@@ -10,7 +10,7 @@ public class EProperties : MonoBehaviour
 
     public GameObject buletPrefab;
 
-    [Header("Сюда кидать ассеты врагов")]
+    [Header("Place for assets enemys")]
     [SerializeField] private Enemy_SO[] enemys;
     public int indexEmemy;
 

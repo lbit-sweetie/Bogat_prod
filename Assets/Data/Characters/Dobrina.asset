@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dobrina
   m_EditorClassIdentifier: 
   level: 1
-  health: 101.35
+  health: 100
   protection: 1
-  walkSpeed: 33.1
+  walkSpeed: 5
   chanceCritDamage: 1
   critDamage: 1
   secondChance: 0

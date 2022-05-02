@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemy", menuName = "Data/Enemys")]
 public class Enemy_SO : ScriptableObject
 {
-    [Header("Статы противника")]
+    [Header("Prop Enemy")]
     public int level = 1;
     public float health = 100;
     public float walkSpeed = 1;
@@ -11,7 +11,7 @@ public class Enemy_SO : ScriptableObject
 
     public GameObject buletPrefab;
 
-    #region Повышение параметров
+    #region Upgrape prop
     public void LevelUp(int count)
     {
         level += count;

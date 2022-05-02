@@ -2,25 +2,12 @@ using UnityEngine;
 
 public class ItemDroping : MonoBehaviour
 {
-    //private PStatistics playerStatistics;
     public GameObject moneyPrefab;
     public GameObject itemPrefab;
 
-    //[Header("Макс колво монет за текущ локацию")]
-    //[SerializeField]
-    //public float countOfExp = 1f;
-
-    //[SerializeField]
-    //[Header("Макс колво XP за текущ локацию")]
-    //public float countOfMoney = 1f;
-
     [SerializeField]
-    [Header("Шанс на выпадение денег")]
+    [Header("Chance for money")]
     private float chanceMoney = .90f;
-
-    //[SerializeField]
-    //[Header("Шанс на выпадение предмета")]
-    //private float chanceItem = .02f;
 
     public void DropMoney(Transform tf)
     {

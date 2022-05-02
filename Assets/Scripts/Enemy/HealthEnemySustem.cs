@@ -15,10 +15,6 @@ public class HealthEnemySustem : MonoBehaviour
         itemDroping = player.GetComponent<ItemDroping>();
     }
 
-    /// <summary>
-    /// Наносит урон по обьекту на котором весит скрипт
-    /// </summary>
-    /// <param name="amount"></param>
     public void TakeDamage(float amount)
     {
         amount = Mathf.Abs(amount);

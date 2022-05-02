@@ -20,7 +20,7 @@ public class EMeleeAttack : MonoBehaviour
         StartCoroutine(MeleeAttack_IEnum());
     }
 
-    private IEnumerator MeleeAttack_IEnum() // ???????? ??????? ????? ????
+    private IEnumerator MeleeAttack_IEnum()
     {
         while (true)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Bullet_Scr : MonoBehaviour
 {
-    #region Свойства
+    #region Prop
     private GameObject player;
     private PProperties playerStatistics;
     private HealthEnemySustem healthEnemy;

@@ -1,12 +1,11 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Character", menuName = "Data/Characters")]
-public class PStatistics_SO : ScriptableObject // Тут будет храниться статистика игрока,
-                                               // будем её менять в течении игры
+public class PStatistics_SO : ScriptableObject
 {
-    #region Статы
+    #region Prop
 
-    [Header("Статы персонажа")]
+    [Header("Prop Haracters")]
     public int level = 1;
     public float health = 100;
     public float protection = 1;
@@ -15,7 +14,7 @@ public class PStatistics_SO : ScriptableObject // Тут будет храниться статистика
     public float critDamage = 1;
     public bool secondChance;
 
-    [Header("Статы оружия")]
+    [Header("Prop Arrows")]
     public float attackSpeed = 1;
     public float damage;
     public bool canAcross;
@@ -24,23 +23,7 @@ public class PStatistics_SO : ScriptableObject // Тут будет храниться статистика
     #endregion
 
 
-    //[Header("Монеты и опыт на текущ сцене")]
-    //[SerializeField]
-    //private float curentCountExp;
-    //[SerializeField]
-    //private float curentCountMoney;
-
-    //public void CollectExp(float count)
-    //{
-    //    curentCountExp += count;
-    //}
-    //public void CollectMoney(float count)
-    //{
-    //    curentCountMoney += count;
-    //}
-
-
-    #region Повышение параметров
+    #region Upgrade prop
     public void LevelUp()
     {
         level++;

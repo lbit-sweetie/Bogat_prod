@@ -45,7 +45,7 @@ public class PAttack : MonoBehaviour
     }
 
     /// <summary>
-    /// Создает и толкает пулю
+    /// Create and push bulet
     /// </summary>
     private void CreateAndShoot(Transform check)
     {
@@ -56,9 +56,9 @@ public class PAttack : MonoBehaviour
     }
 
     /// <summary>
-    /// Находит близжайшего врага
+    /// Find near enemy
     /// </summary>
-    /// <returns>Transform близжайшего обьекта</returns>
+    /// <returns>Transform near enemy</returns>
     private Transform LookAtEnemy()
     {
         var min = 100f;
