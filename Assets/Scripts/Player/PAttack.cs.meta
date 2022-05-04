@@ -3,10 +3,7 @@ guid: db2203ba367bae940987e7c8dbeab30e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - BuletPref: {instanceID: 0}
-  - player: {instanceID: 0}
-  - firePoint: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
