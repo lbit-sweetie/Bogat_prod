@@ -9,6 +9,10 @@ TagManager:
   - Bulet
   - Coin
   - Other
+  - TreePlace
+  - CTreePlace
+  - Ground
+  - PlaceForEnemys
   layers:
   - Default
   - TransparentFX

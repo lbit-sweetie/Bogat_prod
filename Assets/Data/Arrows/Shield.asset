@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f6433ec54a4d143b1b0486d10d08e2, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  Name: Shield
-  Damage: 10
-  AttackSpeed: 1
+  name: 
+  damage: 10
+  attackSpeed: 2
   canAcross: 0
   canRicochet: 1
   canSplash: 1

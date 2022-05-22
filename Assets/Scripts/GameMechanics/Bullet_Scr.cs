@@ -127,8 +127,12 @@ public class Bullet_Scr : MonoBehaviour
         if (canSplash)
         {
             var masNearEnemy = NearEnemy(colider.gameObject, distanceForSplash);
+            if (masNearEnemy.Length == 1)
+                return;
             foreach (var e in masNearEnemy)
             {
+                if (e == colider.gameObject)
+                    return;
                 healthEnemy = e.GetComponent<HealthEnemySustem>();
                 healthEnemy?.TakeDamage(damage - (damage * 0.5f));
             }
@@ -140,8 +144,12 @@ public class Bullet_Scr : MonoBehaviour
         if (canSplash)
         {
             var masNearEnemy = NearEnemy(collision.gameObject, distanceForSplash);
+            if (masNearEnemy.Length == 1)
+                return;
             foreach (var e in masNearEnemy)
             {
+                if (e == collision.gameObject)
+                    return;
                 healthEnemy = e.GetComponent<HealthEnemySustem>();
                 healthEnemy?.TakeDamage(damage - (damage * 0.5f));
             }

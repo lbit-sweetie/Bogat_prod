@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PAttack : MonoBehaviour
@@ -9,25 +6,28 @@ public class PAttack : MonoBehaviour
     [SerializeField]
     private GameObject BuletPref;
     [SerializeField]
-    private float delayForShoot;
-    [SerializeField]
     private Transform firePoint;
     [SerializeField]
     private float speedBulet;
 
+    public float delayForShoot;
     private GameObject[] massEnemys;
-
     private WaitForSeconds waitForSeconds;
+    private GameObject player;
 
     void Start()
     {
-        waitForSeconds = new WaitForSeconds(delayForShoot);
+        player = GameObject.FindGameObjectWithTag("Player");
+        waitForSeconds = new WaitForSeconds(3 - player.GetComponent<PProperties>().attackSpeed);
         massEnemys = GameObject.FindGameObjectsWithTag("Enemy");
         StartCoroutine(Attack_IEnum());
     }
 
     private IEnumerator Attack_IEnum()
     {
+        //waitForSeconds = new WaitForSeconds(delayForShoot);
+        waitForSeconds = new WaitForSeconds(1 - player.GetComponent<PProperties>().attackSpeed * 0.1f);
+        delayForShoot = 1 - player.GetComponent<PProperties>().attackSpeed * 0.3f;
         while (true)
         {
             var check = LookAtEnemy();
@@ -44,9 +44,6 @@ public class PAttack : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Create and push bulet
-    /// </summary>
     private void CreateAndShoot(Transform check)
     {
         var enemyT = check;
@@ -55,10 +52,6 @@ public class PAttack : MonoBehaviour
         bulet.GetComponent<Rigidbody>().AddForce(firePoint.forward * speedBulet, ForceMode.Impulse);
     }
 
-    /// <summary>
-    /// Find near enemy
-    /// </summary>
-    /// <returns>Transform near enemy</returns>
     private Transform LookAtEnemy()
     {
         var min = 100f;

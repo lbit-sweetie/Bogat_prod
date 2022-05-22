@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f6433ec54a4d143b1b0486d10d08e2, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  Name: Axe
-  Damage: 20
-  canRicochet: 0
+  name: 
+  damage: 10
+  attackSpeed: 1
   canAcross: 1
-  AttackSpeed: 2
+  canRicochet: 0
+  canSplash: 0

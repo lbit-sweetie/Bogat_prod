@@ -6,7 +6,6 @@ using UnityEngine;
 public class PStatistics_SO : ScriptableObject
 {
     #region Prop
-
     [Header("Prop Haracters")]
     public int level = 1;
     public float health = 100;
@@ -21,7 +20,6 @@ public class PStatistics_SO : ScriptableObject
     public float damage;
     public bool canAcross;
     public bool canRicochet;
-
     #endregion
 
 

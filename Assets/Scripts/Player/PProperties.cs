@@ -3,7 +3,6 @@ using UnityEngine;
 public class PProperties : MonoBehaviour
 {
     #region Prop haracter
-
     [Header("Prop haracter")]
     public int level = 1;
     public float health = 100;
@@ -16,7 +15,7 @@ public class PProperties : MonoBehaviour
 
     #region Prop arrows
     [Header("Prop arrows")]
-    public float attackSpeed = 1;
+    public float attackSpeed;
     public float damage;
     public bool canAcross;
     public bool canRicochet;
@@ -45,6 +44,9 @@ public class PProperties : MonoBehaviour
     [SerializeField] private Boots_SO[] boots_SO;
     public int indexBoots;
 
+    [Header("CurentStats")]
+    [SerializeField] private CurentStats_SO curentStats;
+
     #endregion
 
     private void Awake()
@@ -68,8 +70,8 @@ public class PProperties : MonoBehaviour
 
         #region Add prop SO arrows
 
-        attackSpeed = arrowsProperties_SO[indexArrow].AttackSpeed;
-        damage = arrowsProperties_SO[indexArrow].Damage;
+        attackSpeed = arrowsProperties_SO[indexArrow].attackSpeed;
+        damage = arrowsProperties_SO[indexArrow].damage;
         canAcross = arrowsProperties_SO[indexArrow].canAcross;
         canRicochet = arrowsProperties_SO[indexArrow].canRicochet;
         canSplash = arrowsProperties_SO[indexArrow].canSplash;
@@ -85,18 +87,98 @@ public class PProperties : MonoBehaviour
         critDamage += artifacts_SO[indexArtifact].critUp;
 
         #endregion
+
+        if (curentStats.taked)
+        {
+            TakeStats();
+        }
+
     }
 
-    public void HealthUp()
+    public float GetHealthInSO()
+    {
+        return pStats_SO[indexCharacter].health;
+    }
+
+    private void HealthUp()
     {
         health *= 1.3f;
     }
-    public void DamageUp()
+    private void DamageUp()
     {
-        damage *= 1.2f;
+        damage *= 1.3f;
     }
-    public void SpeedUp()
+    private void SpeedUp()
     {
         walkSpeed += 2;
+    }
+    private void AtackSpeedUp()
+    {
+        attackSpeed *= 1.3f;
+    }
+
+    public void ChooseSkill()
+    {
+        //var a = Random.Range(0, 3);
+
+        //switch (a)
+        //{
+        //    case 0:
+        //        AtackSpeedUp();
+        //        break;
+        //    case 1:
+        //        HealthUp();
+        //        break;
+        //    case 2:
+        //        SpeedUp();
+        //        break;
+        //    case 3:
+        //        DamageUp();
+        //        break;
+        //}
+
+        HealthUp();
+        SaveCurentStats();
+    }
+
+    public void SaveCurentStats()
+    {
+        curentStats.level = level;
+        curentStats.health = health;
+        curentStats.protection = protection;
+        curentStats.walkSpeed = walkSpeed;
+        curentStats.chanceCritDamage = chanceCritDamage;
+        curentStats.critDamage = critDamage;
+        curentStats.secondChance = secondChance;
+
+        curentStats.attackSpeed = attackSpeed;
+        curentStats.damage = damage;
+        curentStats.canAcross = canAcross;
+        curentStats.canRicochet = canRicochet;
+        curentStats.canSplash = canSplash;
+
+        curentStats.taked = true;
+    }
+
+    public void TakeStats()
+    {
+        level = curentStats.level;
+        health = curentStats.health;
+        protection = curentStats.protection;
+        walkSpeed = curentStats.walkSpeed;
+        chanceCritDamage = curentStats.chanceCritDamage;
+        critDamage = curentStats.critDamage;
+        secondChance = curentStats.secondChance;
+
+        attackSpeed = curentStats.attackSpeed;
+        damage = curentStats.damage;
+        canAcross = curentStats.canAcross;
+        canRicochet = curentStats.canRicochet;
+        canSplash = curentStats.canSplash;
+    }
+
+    public void TakedFalse()
+    {
+        curentStats.taked = false;
     }
 }
