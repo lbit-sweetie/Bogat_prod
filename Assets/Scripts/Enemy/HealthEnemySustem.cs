@@ -11,9 +11,9 @@ public class HealthEnemySustem : MonoBehaviour
 
     private void Start()
     {
-        gameMechanic = GameObject.FindGameObjectWithTag("Finish").GetComponent<GameMechanic>();
-        enemyHealth = ((gameMechanic.currentChapter == 0 ? 1 : gameMechanic.currentChapter) * 
-            (gameMechanic.curentLocation == 0 ? 1 : gameMechanic.curentLocation)) + 100;
+        //gameMechanic = GameObject.FindGameObjectWithTag("Finish").GetComponent<GameMechanic>();
+        //enemyHealth = ((gameMechanic.currentChapter == 0 ? 1 : gameMechanic.currentChapter) * 
+            //(gameMechanic.curentLocation == 0 ? 1 : gameMechanic.curentLocation)) + 100;
     }
 
     public void TakeDamage(float amount)

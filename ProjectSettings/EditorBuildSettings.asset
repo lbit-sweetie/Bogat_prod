@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 37b02e278e6f65b488bf0f831cc42be5
   - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: f79804dda5f791147a0258d83ad47af1
+  - enabled: 1
     path: Assets/Scenes/Ilya_Scene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1

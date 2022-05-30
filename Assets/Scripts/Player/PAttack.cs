@@ -59,7 +59,7 @@ public class PAttack : MonoBehaviour
         GameObject enemy = null;
         for (int i = 0; i < massEnemys.Length; i++)
         {
-            if(massEnemys[i] != null)
+            if (massEnemys[i] != null)
             {
                 a = Vector3.Distance(massEnemys[i].transform.position, firePoint.transform.position);
                 if (a < min)

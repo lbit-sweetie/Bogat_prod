@@ -60,7 +60,6 @@
     <Compile Include="Assets\Scripts\Enemy\ERangedAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\HealthEnemySustem.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCamera.cs" />
-    <Compile Include="Assets\Scripts\PlayerCont_test.cs" />
     <Compile Include="Assets\Scripts\GameMechanics\ItemDroping.cs" />
     <Compile Include="Assets\Scripts\GameMechanics\LevelGeneration.cs" />
     <Compile Include="Assets\Scripts\Player\PAttack.cs" />
@@ -71,17 +70,18 @@
     <Compile Include="Assets\Scripts\Player\PControler.cs" />
     <Compile Include="Assets\Scripts\GameMechanics\GameMechanic.cs" />
     <Compile Include="Assets\Packs\Low_Poly_Survival\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\UI\Options.cs" />
     <Compile Include="Assets\Scripts\Player\PHealthSystem.cs" />
     <Compile Include="Assets\Scripts\Enemy\EMeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\EKillSystem.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Items\Armor_SO.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\DataForMainGame.cs" />
     <Compile Include="Assets\Scripts\Enemy\EProperties\EProperties.cs" />
-    <Compile Include="Assets\Scripts\TestEnemyScr.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\PStatistics_SO.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\Enemy_SO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EStatistics.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
